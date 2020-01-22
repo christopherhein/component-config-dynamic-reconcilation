@@ -1,0 +1,27 @@
+= Component Config & Dynamic Reconcilation
+:toc:
+:icons: font
+
+[NOTE]
+===============================================================================
+As Kubernetes native developers we are constantly pushing the bounds on how you
+configure your applications, you see this in core Kubernetes with the migration
+from `flag` based configuration, to file base config, to now dynamic using K8s
+primitives.
+===============================================================================
+
+## Abstract
+
+`ComponentConfig` is a pattern that allows you to use Kubernetes API Machinery to load Configuration files that look and feel like Kubernetes resources. This talk will introduce the idea of combining `ComponentConfig` with Dynamic Configs through CRDs to allow your controllers to dynamically reconfigure themselves similar to the way the Dynamic Kubelet Configuration works. This pattern can be useful for any Controller or Operator builder to make updating and managing the controller much more straightforward for end-users. This pattern also introduces the ability to report customized status about how the controller is operating, reducing the cognitive load for users to debug misconfigured controllers.
+
+## Exploring the Project
+
+TBD
+
+
+## Links
+
+|=============
+| Name           | Link 
+| Google Docs    | https://docs.google.com/document/d/1MEHuxfwhlpWk5CZnFiHqYLQQHKsoigNYppZ1h5vRMNI/edit?usp=drive_web&ouid=115067239053808068604
+| Google Slides  | https://docs.google.com/presentation/d/1jicpU8xR8LY6b6tc-9c55RdYlTrdsHBI7IkNjDQdhHU/edit#slide=id.p 
