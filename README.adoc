@@ -18,6 +18,20 @@ primitives.
 
 TBD
 
+## Running Locally
+
+To get up an running with the project all you have to do is create a local cluster, this can be done using `kind` through the `Makefile` with `kind-create` and then `run` which will make sure all the manifests are generated and ready for consumption.
+
+[source,sh]
+----
+make kind-create run
+----
+
+## Demo
+
+// This should have a gif of what the project does
+TBD
+
 
 ## Links
 

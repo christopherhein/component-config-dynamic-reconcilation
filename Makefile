@@ -22,7 +22,7 @@ manager: generate fmt vet
 	go build -o bin/manager main.go
 
 # Run against the configured Kubernetes cluster in ~/.kube/config
-run: generate fmt vet manifests
+run: generate fmt vet manifests install
 	go run ./main.go
 
 # Install CRDs into a cluster
@@ -62,6 +62,14 @@ docker-build: test
 docker-push:
 	docker push ${IMG}
 
+# Create local kind cluster
+kind-create: kind
+	${KIND} create cluster --name ccdr -q
+
+# Delete local kind cluster
+kind-delete: kind
+	${KIND} delete cluster --name ccdr
+
 # find or download controller-gen
 # download controller-gen if necessary
 controller-gen:
@@ -77,4 +85,14 @@ ifeq (, $(shell which controller-gen))
 CONTROLLER_GEN=$(GOBIN)/controller-gen
 else
 CONTROLLER_GEN=$(shell which controller-gen)
+endif
+
+# find or download kind
+# donload kind if necessary
+kind:
+ifeq (, $(shell which kind))
+	go get sigs.k8s.io/kind@v0.7.0
+KIND=$(shell which kind)
+else
+KIND=$(shell which kind)
 endif
